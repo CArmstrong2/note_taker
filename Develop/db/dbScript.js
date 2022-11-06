@@ -10,7 +10,7 @@ class Database {
     }
 
     read(){
-        return asyncRead("db/db.json")
+        return asyncRead("db/db.json", "utf-8")
     }
 
     getNotes(){

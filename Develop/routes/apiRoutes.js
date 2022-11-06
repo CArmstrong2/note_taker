@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const db = require("../db/db")
+const db = require("../db/dbScript")
 
 router.get("/notes", (req, res) => {
     db
@@ -7,6 +7,10 @@ router.get("/notes", (req, res) => {
         .then((notes) => {return res.json(notes)})
 })
 
-
+router.post("/notes", (req, res) => {
+    db
+        .addNote(req.body)
+        .then((newNote) => res.json(newNote))
+})
 
 module.exports = router
